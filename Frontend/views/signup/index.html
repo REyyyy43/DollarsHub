@@ -8,7 +8,7 @@
     <title>Sign Up|AB</title>
 </head>
 <body class="bg-slate-700">
-    <form id="form">
+    <form id="form" class="flex flex-col justify-center content-center bg-slate-500 items-start flex-wrap">
         <h1 id="form-title">Validacion</h1>
         <div class="input-div">
             <input 
@@ -16,6 +16,9 @@
             id="name-input"
             placeholder="Usuario"
             >
+            <p class="information">
+                Debe incluir 1 numero y 1 letra. Maximo 16 caracteres
+            </p>
         </div>
         <div class="input-div">
             <input 
@@ -23,6 +26,9 @@
             id="email-input"
             placeholder="Email"
             >
+            <p class="information">
+                Debe seguir el siguiente formato: example@gmail.com
+            </p>
         </div>
     <div class="input-div">      
         <select id="countries">
@@ -244,10 +250,10 @@
                 <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                 <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>                          
 </select>
-	
-		        
-</select>
-        </div>
+<p class="information">
+    selecciona un pais
+</p>      
+</div>
         <div class="input-div">
             <span id="phone-code">+##</span>
             <input 
@@ -255,7 +261,31 @@
             id="phone-input"
             placeholder="Phone"
             >
+            <p class="information">
+                Solo acepta numeros
+            </p>
         </div>
+        <div class="input-div">
+            <input 
+            type="password"
+            id="password-input"
+            placeholder="Contraseña"
+            >
+            <p class="information">
+               Solo acepta letas y numeros. Maximo 24 caracteres
+            </p>
+        </div>
+        <div class="input-div">
+            <input 
+            type="match"
+            id="match-input"
+            placeholder="Confirmar contraseña"
+            >
+            <p class="information">
+               Debe coincidir con la contraseña
+            </p>
+        </div>
+        <button id="form-btn">Registrar</button>
     </form>
 
    <div style="background-color: rgb(25, 73, 51); clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 58% 60%, 0 0);">
