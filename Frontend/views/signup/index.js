@@ -4,10 +4,38 @@ const PASSWORD_VALIDATION = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$
 const NAME_VALIDATION = /^[A-Z\u00d1][a-zA-Z-ÿ\u00f1\u00d1]+(\s*[A-Z\u00d1][a-zA-Z-ÿ\u00f1\u00d1\s]*)$/;
 const PHONE_VALIDATION = /^[0-9]{6,16}$/;
 
+
+
 //SElectors
 const countries = document.querySelector("#countries");
+const nameInput = document.querySelector("#name-input");
+
 [...countries].forEach(option => {
     option.innerHTML = option.innerHTML.split('(')[0];
+});
+
+// EVENTS
+nameInput.addEventListener('input', e => {
+    nameValidation = NAME_VALIDATION.test(e.target.value);
+    validation(nameInput, nameValidation);
+});
+emailInput.addEventListener('input', e => {
+    emailValidation = EMAIL_VALIDATION.test(e.target.value);
+    validation(emailInput, emailValidation);
+});
+phoneInput.addEventListener('input', e => {
+    phoneValidation = PHONE_VALIDATION.test(e.target.value);
+    validation(phoneInput, phoneValidation);
+});
+passwordInput.addEventListener('input', e => {
+    passwordValidation = PASSWORD_VALIDATION.test(e.target.value);
+    matchValidation = e.target.value === matchInput.value;
+    validation(passwordInput, passwordValidation);
+    validation(matchInput, matchValidation);
+});
+matchInput.addEventListener('input', e => {
+    matchValidation = e.target.value === passwordInput.value;
+    validation(matchInput, matchValidation);
 });
 
 // Validacion
@@ -33,32 +61,8 @@ const validation = (input , regexValidation) => {
         input.classList.add('outline-red-500' , 'outline-2' , 'outline');
     }
 };
-// EVENTS
 
-nameInput.addEventListener('input', e => {
-    nameValidation = NAME_VALIDATION.test(e.target.value);
-    validation(nameInput, nameValidation);
-});
 
-emailInput.addEventListener('input', e => {
-    emailValidation = EMAIL_VALIDATION.test(e.target.value);
-    validation(emailInput, emailValidation);
-});
 
-phoneInput.addEventListener('input', e => {
-    phoneValidation = PHONE_VALIDATION.test(e.target.value);
-    validation(phoneInput, phoneValidation);
-});
 
-passwordInput.addEventListener('input', e => {
-    passwordValidation = PASSWORD_VALIDATION.test(e.target.value);
-    matchValidation = e.target.value === matchInput.value;
-    validation(passwordInput, passwordValidation);
-    validation(matchInput, matchValidation);
-});
-
-matchInput.addEventListener('input', e => {
-    matchValidation = e.target.value === passwordInput.value;
-    validation(matchInput, matchValidation);
-});
 
