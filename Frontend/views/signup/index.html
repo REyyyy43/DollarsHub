@@ -8,7 +8,7 @@
     <title>Sign Up|AB</title>
 </head>
 <body class="bg-slate-700 p-2 m-0 h-screen flex justify-center items-center">
-    <form id="form" class="flex rounded-md w-full md:w-3/5 flex-col p-4 top-0 justify-center content-center gap-4 bg-slate-600 items-start flex-wrap">
+    <form id="form" class="flex text-white rounded-md w-full md:w-3/5 flex-col p-4 top-0 justify-center content-center gap-4 bg-slate-600 items-start flex-wrap">
        <div class="flex flex-col justify-center p-2 w-full gap-4">
         <h1 id="form-title" class="text-2xl m-0 text-center font-bold text-white">Validacion</h1>
         <div class="input-div" class="flex flex-col gap-2">
@@ -16,9 +16,9 @@
             type="text"
             id="name-input"
             placeholder="Usuario"
-            class="w-full rounded-lg p-2"
+            class="w-full rounded-lg p-3 bg-slate-500"
             >
-            <p class="information">
+            <p class="information text-red-600 m-0 hidden">
                 Debe incluir 1 numero y 1 letra. Maximo 16 caracteres
             </p>
         </div>
@@ -27,14 +27,14 @@
             type="email"
             id="email-input"
             placeholder="Email"
-            class="w-full rounded-lg p-2"
+            class="w-full rounded-lg p-3 bg-slate-500"
             >
-            <p class="information">
+            <p class="information text-red-600 m-0 hidden">
                 Debe seguir el siguiente formato: example@gmail.com
             </p>
         </div>
     <div class="input-div" class="flex flex-col gap-2">   
-        <select id="countries" class="w-full rounded-lg p-2"">
+        <select id="countries" class="w-full rounded-lg p-3 text-white bg-slate-500">
                 <option value="" Selected disabled>Selecciona un pais</option>
 	            <option data-countryCode="GB" value="44">UK (+44)</option>
 	            <option data-countryCode="US" value="1">USA (+1)</option>
@@ -253,21 +253,21 @@
                 <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                 <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>                          
 </select>
-<p class="information">
+<p class="information text-red-600 m-0 hidden">
     selecciona un pais
 </p>      
 </div>
         <div class="input-div" class="flex flex-col w-full gap-2">
-            <div class="phone-container flex">
-                <span id="phone-code">+##</span>
+            <div class="phone-container flex gap-4">
+                <span id="phone-code" class="text-white bg-slate-500 p-3 rounded-lg">+##</span>
                 <input 
                 type="tel"
                 id="phone-input"
                 placeholder="Phone"
-                class="w-full rounded-lg p-2"
+                class="w-full rounded-lg p-3 bg-slate-500"
                 >
             </div>
-            <p class="information">
+            <p class="information text-red-600 m-0 hidden">
                 Solo acepta numeros
             </p>
         </div>
@@ -276,28 +276,26 @@
             type="password"
             id="password-input"
             placeholder="Contraseña"
-            class="w-full rounded-lg p-2"
+            class="w-full rounded-lg p-3 bg-slate-500"
             >
-            <p class="information">
+            <p class="information text-red-600 m-0 hidden">
                Solo acepta letas y numeros. Maximo 24 caracteres
             </p>
         </div>
         <div class="input-div" class="flex flex-col gap-2">
             <input 
-            type="match"
+            type="password"
             id="match-input"
             placeholder="Confirmar contraseña"
-            class="w-full rounded-lg p-2"
+            class="w-full rounded-lg p-3 bg-slate-500"
             >
-            <p class="information">
+            <p class="information text-red-600 m-0 hidden">
                Debe coincidir con la contraseña
             </p>
         </div>
-        <button id="form-btn" class="bg-slate-900 w-full font-bold text-white p-1 rounded-lg">Registrar</button>
+        <button id="form-btn" class="bg-slate-900 w-full font-bold text-white p-4 mt-2 rounded-lg">Registrar</button>
     </form>
 </div>
-    <script src="/Components/nav.js"></script>
-    <script type="module" src="index.js"></script>
-    <script type="module" src="../Components/notification.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
