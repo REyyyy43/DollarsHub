@@ -11,6 +11,7 @@ const emailInput = document.querySelector("#email-input");
 const passwordInput = document.querySelector("#password-input");
 const matchInput = document.querySelector("#match-input");
 const phoneInput = document.querySelector("#phone-input");
+const phoneCode = document.querySelector("#phone-code");
 const formBtn = document.querySelector('#form-btn');
 
 [...countries].forEach(option => {
@@ -20,6 +21,7 @@ const formBtn = document.querySelector('#form-btn');
 // EVENTS
 nameInput.addEventListener('input', e => {
     nameValidation = NAME_VALIDATION.test(e.target.value);
+    
     validation(nameInput, nameValidation);
 });
 emailInput.addEventListener('input', e => {
@@ -28,7 +30,25 @@ emailInput.addEventListener('input', e => {
 });
 phoneInput.addEventListener('input', e => {
     phoneValidation = PHONE_VALIDATION.test(e.target.value);
-    validation(phoneInput, phoneValidation);
+    const information = phoneInput.parentElement.parentElement.children[1];
+
+    if (phoneInput.value === '') {
+        phoneInput.classList.remove('outline-red-500', 'outline-2' , 'outline' );
+        phoneInput.classList.remove('outline-green-500' , 'outline-2' , 'outline');
+        phoneInput.classList.add('outline-none');
+        information.classList.add('hidden');
+    } else if (phoneValidation) {
+        phoneInput.classList.remove('outline-none');
+        phoneInput.classList.add('outline-green-500'  , 'outline-2' , 'outline');
+        formBtn.classList.remove('disabled' , 'cursor-not-allowed');
+        information.classList.add('hidden');
+    } else if (!phoneValidation){
+        phoneInput.classList.remove('outline-none');
+        phoneInput.classList.remove('outline-green-500' , 'outline-2' , 'outline' );
+        phoneInput.classList.add('outline-red-500' , 'outline-2' , 'outline');
+        formBtn.classList.add('disabled' , 'cursor-not-allowed');
+        information.classList.remove('hidden');
+    }
 });
 passwordInput.addEventListener('input', e => {
     passwordValidation = PASSWORD_VALIDATION.test(e.target.value);
@@ -40,6 +60,13 @@ matchInput.addEventListener('input', e => {
     matchValidation = e.target.value === passwordInput.value;
     validation(matchInput, matchValidation);
 });
+countries.addEventListener('input', e => {
+   const optionSelected = [...e.target.children].find(option => option.selected);
+   phoneCode.innerHTML = `+${optionSelected.value}`
+   countries.classList.add('outline-green-500'  , 'outline-2' , 'outline');
+   phoneCode.classList.add('outline-green-500'  , 'outline-2' , 'outline');
+});
+
 
 // Validacion
 let nameValidation = false;
@@ -49,21 +76,26 @@ let matchValidation = false;
 let phoneValidation = false;
 
 const validation = (input , regexValidation) => {
+    const information = input.parentElement.children[1];
     formBtn.disabled = !nameValidation || !emailValidation || !passwordValidation || !matchValidation || !phoneValidation;
-
+    
+   
     if (input.value === '') {
         input.classList.remove('outline-red-500', 'outline-2' , 'outline' );
         input.classList.remove('outline-green-500' , 'outline-2' , 'outline');
         input.classList.add('outline-none');
+        information.classList.add('hidden');
     } else if (regexValidation) {
         input.classList.remove('outline-none');
         input.classList.add('outline-green-500'  , 'outline-2' , 'outline');
         formBtn.classList.remove('disabled' , 'cursor-not-allowed');
+        information.classList.add('hidden');
     } else if (!regexValidation){
         input.classList.remove('outline-none');
         input.classList.remove('outline-green-500' , 'outline-2' , 'outline' );
         input.classList.add('outline-red-500' , 'outline-2' , 'outline');
         formBtn.classList.add('disabled' , 'cursor-not-allowed');
+        information.classList.remove('hidden');
     }
 
 };
