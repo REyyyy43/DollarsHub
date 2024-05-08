@@ -4,11 +4,14 @@ const PASSWORD_VALIDATION = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$
 const NAME_VALIDATION = /^[A-Z\u00d1][a-zA-Z-ÿ\u00f1\u00d1]+(\s*[A-Z\u00d1][a-zA-Z-ÿ\u00f1\u00d1\s]*)$/;
 const PHONE_VALIDATION = /^[0-9]{6,16}$/;
 
-
-
 //SElectors
 const countries = document.querySelector("#countries");
 const nameInput = document.querySelector("#name-input");
+const emailInput = document.querySelector("#email-input");
+const passwordInput = document.querySelector("#password-input");
+const matchInput = document.querySelector("#match-input");
+const phoneInput = document.querySelector("#phone-input");
+const formBtn = document.querySelector('#form-btn');
 
 [...countries].forEach(option => {
     option.innerHTML = option.innerHTML.split('(')[0];
@@ -51,15 +54,18 @@ const validation = (input , regexValidation) => {
     if (input.value === '') {
         input.classList.remove('outline-red-500', 'outline-2' , 'outline' );
         input.classList.remove('outline-green-500' , 'outline-2' , 'outline');
-        input.classList.add('focus:outline-cyan-950');
+        input.classList.add('outline-none');
     } else if (regexValidation) {
-        input.classList.remove('focus:outline-cyan-950');
+        input.classList.remove('outline-none');
         input.classList.add('outline-green-500'  , 'outline-2' , 'outline');
+        formBtn.classList.remove('disabled' , 'cursor-not-allowed');
     } else if (!regexValidation){
-        input.classList.remove('focus:outline-cyan-950');
+        input.classList.remove('outline-none');
         input.classList.remove('outline-green-500' , 'outline-2' , 'outline' );
         input.classList.add('outline-red-500' , 'outline-2' , 'outline');
+        formBtn.classList.add('disabled' , 'cursor-not-allowed');
     }
+
 };
 
 
