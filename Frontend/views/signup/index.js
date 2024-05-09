@@ -13,6 +13,7 @@ const matchInput = document.querySelector("#match-input");
 const phoneInput = document.querySelector("#phone-input");
 const phoneCode = document.querySelector("#phone-code");
 const formBtn = document.querySelector('#form-btn');
+const form = document.querySelector('#form');
 
 [...countries].forEach(option => {
     option.innerHTML = option.innerHTML.split('(')[0];
@@ -82,8 +83,19 @@ countries.addEventListener('input', e => {
    phoneCode.classList.add('outline-green-500'  , 'outline-2' , 'outline');
    countriesValidation = optionSelected.value === '' ? false : true;
    enableFormButton();
+   validation(e, null, null);
 });
 
+form.addEventListener('submit', e => {
+e.preventDefault();
+const user = {
+   name: nameInput.value,
+   email: emailInput.value,
+   password: passwordInput.value,
+   phone: `${phoneCode.innerHTML} ${phoneInput.value}`
+}
+console.log(user);
+});
 
 // Validacion
 let nameValidation = false;
