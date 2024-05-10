@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
 <body class="m-0 font-sans bg-slate-800">
@@ -24,7 +23,7 @@
         </div>
         <div class="coin-input-container text-white flex flex-col gap-4">
             <label class="font-bold text-3xl" for="crypto">ELIGE TU CRYPTOMONEDA</label>
-            <select class="coin-input rounded-lg outline-none p-2 text-black" id="coin">
+            <select class="coin-input rounded-lg outline-none p-2 text-black" id="crypto">
                 <option selected disabled value="">Selecciona una moneda</option>
                 <option value="BTC">Bitcoin</option>
                 <option value="ETH">Ethereum</option>
@@ -38,13 +37,8 @@
             </div>
             <button id="form-btn" class="w-full text-white font-extrabold p-2 rounded-lg bg-indigo-500" type="submit">COTIZAR</button>
     </form>
-    <div dir="ltr" id="coin-info" class="border bg-gray-800 p-2 text-lg border-s-4 flex flex-col gap-2 text-white border-amber-600 rounded-lg relative">
-       <img class="w-36 text-amber-500 absolute top-1/2 left-1/2 opacity-30 transform -translate-x-1/2 -translate-y-1/2 z-0" src="cryptocurrency.png" alt="1">
-        <p class="info">El precio es: <span class="price font-bold">1111</span></p>
-        <p class="info">El precio mas alto: <span class="price font-bold">1111</span></p>
-        <p class="info">El precio mas bajo: <span class="price font-bold">111</span></p>
-        <p class="info">Variacion 24H: <span class="price font-bold">1111</span></p>
-        <p class="info">Puede comprar: <span class="price font-bold">111111</span></p>
+    <div dir="ltr" id="coin-info" class="text-amber-500 bg-gray-800 p-2 text-base flex flex-col gap-2 rounded-lg relative">
+      
     </div>
    </div>
    </div>
