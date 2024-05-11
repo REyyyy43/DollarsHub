@@ -1,14 +1,13 @@
 const express = require('express');
-const fetch = require('node-fetch');
-const app = express();
-const port = 3000;
+const axios = require('axios');
+const coinRouter = express.Router();
 
-app.get('/crypto', async (req, res) => {
+coinRouter.get('/', async (req, res) => {
     const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,axie-infinity&vs_currencies=usd';
 
     try {
-        const response = await fetch(url);
-        const data = await response.json();
+        const response = await axios.get(url); // Utilizar axios.get para hacer la solicitud HTTP
+        const data = response.data; // axios devuelve directamente los datos, no es necesario llamar a .json()
         res.json(data);
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -16,6 +15,4 @@ app.get('/crypto', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+module.exports = coinRouter;

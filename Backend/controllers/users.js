@@ -1,9 +1,5 @@
 const usersRouter = require('express').Router();
-const bcrypt = require('bcrypt');
 const User = require('../models/user');
-const jwt = require('jsonwebtoken');
-const nodemailer = require('nodemailer');
-const { PAGE_URL } = require('../config');
 
 usersRouter.post('/', async (request , response) => {
      const { name, email, password } = request.body;
