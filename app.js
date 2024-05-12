@@ -23,6 +23,7 @@ app.use(express.json());
 app.use('/', express.static(path.resolve('Frontend', 'views', 'Home')));
 app.use('/signup', express.static(path.resolve('Frontend', 'views', 'signup')));
 app.use('/login', express.static(path.resolve('Frontend', 'views', 'login')));
+app.use('/Page', express.static(path.resolve('Frontend', 'views', 'Page')));
 app.use('/images', express.static(path.resolve('img')));
 app.use('/verify/:id/:token', express.static(path.resolve('Frontend', 'views', 'verify')));
 
