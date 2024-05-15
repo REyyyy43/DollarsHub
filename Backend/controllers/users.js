@@ -1,10 +1,13 @@
 const usersRouter = require('express').Router();
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
 
 usersRouter.post('/', async (request , response) => {
-     const { name, email, password } = request.body;
+     const { name, email, password, phone } = request.body;
     
-     if (!name || !email || !password) {
+     if (!name || !email || !password || !phone) {
         return response.status(400).json({error: 'Todos los espacios son requeridos'})
      }
 
@@ -21,7 +24,7 @@ const newUser = new User({
  name,
  email,
  passwordHash,
- role: 'cliente'
+ phone,
 });
 
 const savedUser = await newUser.save();

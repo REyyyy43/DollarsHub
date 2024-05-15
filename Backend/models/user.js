@@ -4,14 +4,12 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: String,
     passwordHash: String,
+    phoneNumber: String,
     verified: {
         type: Boolean,
         default: false
     },
-    citas: [{ 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Cita' 
-    }], 
+    
 });
 
 userSchema.set('toJSON', {

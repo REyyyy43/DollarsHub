@@ -15,6 +15,7 @@ const phoneCode = document.querySelector("#phone-code");
 const formBtn = document.querySelector('#form-btn');
 const form = document.querySelector('#form');
 
+
 [...countries].forEach(option => {
     option.innerHTML = option.innerHTML.split('(')[0];
 });
@@ -86,16 +87,23 @@ countries.addEventListener('input', e => {
    validation(e, null, null);
 });
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async e => {
 e.preventDefault();
-const user = {
+try {
+    const newUser = {
    name: nameInput.value,
    email: emailInput.value,
    password: passwordInput.value,
    phone: `${phoneCode.innerHTML} ${phoneInput.value}`
 }
-console.log(user);
+const response = await axios.post('/api/users', newUser);
+console.log(response);
+} catch (error) {
+console.log(error);
+}
 });
+
+
 
 // Validacion
 let nameValidation = false;
@@ -107,6 +115,7 @@ let countriesValidation = false;
 
 const validation = (input , regexValidation) => {
     const information = input.parentElement.children[1];
+    console.log(information);
     formBtn.disabled = !nameValidation || !emailValidation || !passwordValidation || !matchValidation || !phoneValidation || !countriesValidation;
     
     if (input.value === '') {
