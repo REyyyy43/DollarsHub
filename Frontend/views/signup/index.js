@@ -103,8 +103,6 @@ console.log(error);
 }
 });
 
-
-
 // Validacion
 let nameValidation = false;
 let emailValidation = false;

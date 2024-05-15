@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
 const usersRouter = require('./Backend/controllers/users');
 const loginRouter = require('./Backend/controllers/login');
 const coinRouter = require('./Backend/controllers/coin');
@@ -17,7 +20,10 @@ const coinPageRouter = require('./Backend/controllers/coinPage');
     }
 })();
 
+app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
+app.use(morgan('tiny')); // Mantenemos el logger de Morgan
 
 // Rutas frontend
 app.use('/', express.static(path.resolve('Frontend', 'views', 'Home')));
