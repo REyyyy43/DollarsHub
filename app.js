@@ -6,7 +6,7 @@ const path = require('path');
 const usersRouter = require('./Backend/controllers/users');
 const loginRouter = require('./Backend/controllers/login');
 const coinRouter = require('./Backend/controllers/coin');
-
+const coinPageRouter = require('./Backend/controllers/coinPage');
 
 (async () => {
     try {
@@ -31,5 +31,6 @@ app.use('/verify/:id/:token', express.static(path.resolve('Frontend', 'views', '
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/coin', coinRouter);
+app.use('/api/coinPage', coinPageRouter);
 
 module.exports = app;

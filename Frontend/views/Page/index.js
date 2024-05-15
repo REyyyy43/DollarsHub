@@ -83,7 +83,7 @@ const imageUrls = {
 };
 
 // Llamada a la ruta del servidor backend para obtener los datos de las criptomonedas
-axios.get('/api/coin')
+axios.get('/api/coinPage')
     .then(response => {
         const data = response.data;
         Object.entries(data).forEach(([symbol, dataObj]) => {
