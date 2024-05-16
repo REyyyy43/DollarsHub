@@ -4,6 +4,7 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
+const { PAGE_URL } = require('../config');
 
 usersRouter.post('/', async (request , response) => {
      const { name, email, password, phone } = request.body;
