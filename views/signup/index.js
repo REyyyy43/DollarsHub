@@ -1,5 +1,3 @@
-import { createNotification } from '../Components/notification.js';
-
 //SElectors
 const countries = document.querySelector("#countries");
 const nameInput = document.querySelector("#name-input");

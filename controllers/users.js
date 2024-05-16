@@ -26,7 +26,7 @@ const newUser = new User({
  name,
  email,
  passwordHash,
- phone,
+ phone
 });
 
 const savedUser = await newUser.save();

@@ -10,6 +10,7 @@ const usersRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
 const coinRouter = require('./controllers/coin');
 const coinPageRouter = require('./controllers/coinPage');
+const { userExtractor } = require('./middleware/auth');
 
 
 (async () => {
@@ -37,6 +38,6 @@ app.use('/verify/:id/:token', express.static(path.resolve('views', 'verify')));
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/coin', coinRouter);
-app.use('/api/coinPage', coinPageRouter);
+app.use('/api/coinPage', userExtractor, coinPageRouter);
 
 module.exports = app;
