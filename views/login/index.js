@@ -49,11 +49,9 @@ form.addEventListener('submit', async e => {
             password: passwordInput.value,
         };
         const { data } = await axios.post('/api/login', user);
-        if(data.role === 'admin') {
-            window.location.pathname = `/Admin/`
-        } else {
-            window.location.pathname = `/ABarberP/`
-        }
+       
+            window.location.pathname =`/Page/`
+        
     } catch (error) {
        console.log(error); 
        errorText.innerHTML = error.response.data.error;

@@ -30,7 +30,7 @@ const newUser = new User({
 });
 
 const savedUser = await newUser.save();
-const token = jwt.sign({ id: savedUser.id }, process.env.ACCESS_TOKEN_SECRET, { 
+const token = jwt.sign({ id: savedUser._id }, process.env.ACCESS_TOKEN_SECRET, { 
 expiresIn: '1d',
 });
 
@@ -49,7 +49,7 @@ await transporter.sendMail({
 from: process.env.EMAIL_USER, // sender address
 to: savedUser.email, // list of receivers
 subject: 'Verificacion de usuario', // Subject line
-html: `<a href="${PAGE_URL}/verify/${savedUser.id}/${token}">Verificar correo</a>`, //html body
+html: `<a href="${PAGE_URL}/verify/${savedUser._id}/${token}">Verificar correo</a>`, //html body
 
 });
 return response.status(201).json('Usuario creado. Por favor verifica tu correo');

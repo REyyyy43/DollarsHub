@@ -33,6 +33,7 @@ app.use('/signup', express.static(path.resolve('views', 'signup')));
 app.use('/login', express.static(path.resolve('views', 'login')));
 app.use('/Page', express.static(path.resolve('views', 'Page')));
 app.use('/verify/:id/:token', express.static(path.resolve('views', 'verify')));
+app.use('/Components', express.static(path.resolve('views', 'Components')));
 
 // Rutas backend
 app.use('/api/users', usersRouter);
