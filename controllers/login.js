@@ -9,15 +9,15 @@ loginRouter.post('/', async (request , response) => {
     const userExist = await User.findOne({ email });
 
     if (!userExist) {
-        return response.status(400).json({error: 'el email o la contraseña es invalida' });
+        return response.status(400).json({error: 'email or password is invalid' });
     }
     if (!userExist.verified) {
-        return response.status(400).json({error: 'el email no ha sido verificado' });
+        return response.status(400).json({error: 'the email has not been verified' });
     }
     
     const isCorrect = await bcrypt.compare(password, userExist.passwordHash);
     if (!isCorrect) {
-        return response.status(400).json({error: 'el email o la contraseña es invalida' });
+        return response.status(400).json({error: 'email or password is invalid' });
     }
     
     const userForToken = {

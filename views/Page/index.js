@@ -23,19 +23,19 @@ form.addEventListener('submit', async e => {
         coinInfo.innerHTML = `
        
         <img class="w-36 text-amber-500 absolute top-1/2 left-1/2 opacity-30 transform -translate-x-1/2 -translate-y-1/2 z-0" src="cryptocurrency.png" alt="1">
-        <p class="info">El precio es: <span class="price font-bold">${price}</span></p>
-        <p class="info">El precio mas alto: <span class="price font-bold">${priceHigh}</span></p>
-        <p class="info">El precio mas bajo: <span class="price font-bold">${priceLow}</span></p>
-        <p class="info">Variacion 24H: <span class="price font-bold">${variation}%</span></p>
-        <p class="info">Puede comprar: <span class="price font-bold">${result.toFixed(4)} ${cryptoSelected}</span></p>
+        <p class="info">The price is: <span class="price font-bold">${price}</span></p>
+        <p class="info">The highest price is: <span class="price font-bold">${priceHigh}</span></p>
+        <p class="info">The lowest price is: <span class="price font-bold">${priceLow}</span></p>
+        <p class="info">24H Variation: <span class="price font-bold">${variation}%</span></p>
+        <p class="info">You can buy: <span class="price font-bold">${result.toFixed(4)} ${cryptoSelected}</span></p>
         `;
         } else {
             coinInfo.innerHTML = `
             <img class="w-36 text-amber-500 absolute top-1/2 left-1/2 opacity-30 transform -translate-x-1/2 -translate-y-1/2 z-0" src="cryptocurrency.png" alt="1">
-            <p class="info">El precio es: <span class="price font-bold">${price}</span></p>
-            <p class="info">El precio mas alto: <span class="price font-bold">${priceHigh}</span></p>
-            <p class="info">El precio mas bajo: <span class="price font-bold">${priceLow}</span></p>
-            <p class="info">Variacion 24H: <span class="price font-bold">${variation}%</span></p>
+            <p class="info">The price is: <span class="price font-bold">${price}</span></p>
+            <p class="info">The highest price is: <span class="price font-bold">${priceHigh}</span></p>
+            <p class="info">The lowest price is: <span class="price font-bold">${priceLow}</span></p>
+            <p class="info">24H Variation: <span class="price font-bold">${variation}%</span></p>
             `;
         }
 

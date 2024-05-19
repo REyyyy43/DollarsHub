@@ -10,13 +10,13 @@ usersRouter.post('/', async (request , response) => {
      const { name, email, password, phone } = request.body;
     
      if (!name || !email || !password || !phone) {
-        return response.status(400).json({error: 'Todos los espacios son requeridos'})
+        return response.status(400).json({error: 'All spaces are required'})
      }
 
      const userExist = await User.findOne({ email });
 
 if (userExist) {
-    return response.status(400).json({error: 'el email ya se encuentra en uso'})
+    return response.status(400).json({error: 'the email is in use'})
 }
 
 const saltRounds = 10;
@@ -48,12 +48,11 @@ pass: process.env.EMAIL_PASS,
 await transporter.sendMail({
 from: process.env.EMAIL_USER, // sender address
 to: savedUser.email, // list of receivers
-subject: 'Verificacion de usuario', // Subject line
-html: `<a href="${PAGE_URL}/verify/${savedUser._id}/${token}">Verificar correo</a>`, //html body
+subject: 'Check user', // Subject line
+html: `<a href="${PAGE_URL}/verify/${savedUser._id}/${token}">check email</a>`, //html body
 
 });
-return response.status(201).json('Usuario creado. Por favor verifica tu correo');
-   
+return response.status(201).json('User created. Please check your email'); 
 });
 
 usersRouter.patch('/:id/:token', async (request, response) => {
@@ -89,12 +88,12 @@ usersRouter.patch('/:id/:token', async (request, response) => {
     await transporter.sendMail({
     from: process.env.EMAIL_USER, // sender address
     to: email, // list of receivers
-    subject: 'Verificacion de usuario', // Subject line
-    html: `<a href="${PAGE_URL}/verify/${id}/${token}">Verificar correo</a>`, //html body
+    subject: 'Check user', // Subject line
+    html: `<a href="${PAGE_URL}/verify/${id}/${token}">check email</a>`, //html body
     
     });
    }
- return response.status(400).json({error:'El link ya expiró. Se ha enviado un nuevo link de verificación a su correo'});
+ return response.status(400).json({error:'The link has expired. A new verification link has been sent to your email address.'});
 
 });
 
