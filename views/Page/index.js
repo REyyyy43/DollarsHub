@@ -56,10 +56,10 @@ function displayCryptoInfo(symbol, price, imageUrl) {
     
     // Agregar el contenido HTML al div
     divElement.innerHTML = `
-    <div class="flex flex-wrap w-[45%] items-center">
+    <div class="flex flex-wrap w-[50%] items-center">
         <img class="w-10 h-10 p-1" src="${imageUrl}" alt="${symbol.toUpperCase()}">
         <p class="flex font-serif text-sm opacity-45 w-[45%] items-center">${symbol.toUpperCase()}</p>
-        <p class="flex w-[45%] items-center ml-10">$${price}</p>
+        <p class="flex w-[50%] items-center ml-10">${price}</p>
     </div>
     `;
     

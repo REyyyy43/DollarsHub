@@ -7,10 +7,10 @@ const news2 = document.querySelector('#news2');
 function displayCryptoInfo(symbol, price, imageUrl) {
     const divElement = document.createElement('div');
     divElement.innerHTML = `
-        <div class="flex w-[45%] items-center">
+        <div class="flex w-[50%] items-center">
             <img class="w-10 h-10 p-1" src="${imageUrl}" alt="${symbol.toUpperCase()}">
             <p class="flex font-serif text-xs md:text-sm opacity-45 w-[45%] items-center">${symbol.toUpperCase()}</p>
-            <p class="flex w-[45%] text-xs md:text-sm items-center ml-10">$${price}</p>
+            <p class="flex w-[50%] text-xs md:text-sm items-center ml-10">${price}</p>
         </div>
     `;
     cryptoFct.appendChild(divElement);
