@@ -3,9 +3,10 @@ const axios = require('axios');
 const coinRouter = express.Router();
 
 const NEWS_API_KEY = process.env.API_KEY; // Reemplaza con tu clave de API de NewsAPI
+const apiKey = process.env.CRYPTOCOMPARE_API_KEY
 
 coinRouter.get('/', async (req, res) => {
-    const priceUrl = process.env.COINGECKO_API;
+    const priceUrl = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BNB,AXS,LTC,XRP,ADA,DOT,SOL,LINK,XLM,DOGE&tsyms=USD&api_key=${apiKey}`;
      const newsUrl = `https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=${NEWS_API_KEY}`;
 
     try {

@@ -102,10 +102,10 @@ axios.get('/api/coinPage')
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Precio en USD',
+                    label: 'Price in USD',
                     data: prices,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgb(255, 159, 49)',
+                    borderColor: 'rgb(255, 159, 49)',
                     borderWidth: 1
                 }]
             },
