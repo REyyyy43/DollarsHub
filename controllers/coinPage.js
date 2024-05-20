@@ -3,7 +3,7 @@ const axios = require('axios');
 const coinPageRouter = express.Router();
 
 coinPageRouter.get('/', async (req, res) => {
-    const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,axie-infinity,litecoin,ripple,cardano,polkadot,solana,chainlink,stellar,dogecoin&vs_currencies=usd';
+    const url = process.env.COINGECKO_API_UR;
 
     try {
         const response = await axios.get(url); // Utilizar axios.get para hacer la solicitud HTTP

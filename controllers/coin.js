@@ -5,8 +5,8 @@ const coinRouter = express.Router();
 const NEWS_API_KEY = process.env.API_KEY; // Reemplaza con tu clave de API de NewsAPI
 
 coinRouter.get('/', async (req, res) => {
-    const priceUrl = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,axie-infinity&vs_currencies=usd';
-    const newsUrl = `https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=${NEWS_API_KEY}`;
+    const priceUrl = process.env.COINGECKO_API_UR;
+    const newsUrl = process.env.NEWS_API_KEY;
 
     try {
         const [priceResponse, newsResponse] = await Promise.all([axios.get(priceUrl), axios.get(newsUrl)]);
