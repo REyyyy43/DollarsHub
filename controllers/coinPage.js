@@ -3,7 +3,7 @@ const axios = require('axios');
 const coinPageRouter = express.Router();
 
 coinPageRouter.get('/', async (req, res) => {
-    const url = process.env.COINGECKO_API_UR;
+    const url = process.env.COINGECKO_API_URL;
 
     try {
         const response = await axios.get(url); // Utilizar axios.get para hacer la solicitud HTTP
