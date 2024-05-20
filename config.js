@@ -1,5 +1,5 @@
 const PAGE_URL = process.env.NODE_ENV === 'production'
-? 'placeholder'
+? 'https://dollarshub.onrender.com'
 : 'http://localhost:3004'
 
 module.exports = { PAGE_URL };

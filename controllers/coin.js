@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const coinPageRouter = express.Router();
 
-const NEWS_API_KEY = '6ee84cb5c72e4884a03c346265e2c750'; // Reemplaza con tu clave de API de NewsAPI
+const NEWS_API_KEY = process.env.API_KEY; // Reemplaza con tu clave de API de NewsAPI
 
 coinPageRouter.get('/', async (req, res) => {
     const priceUrl = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,axie-infinity&vs_currencies=usd';
