@@ -10,6 +10,7 @@ const usersRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
 const coinRouter = require('./controllers/coin');
 const coinPageRouter = require('./controllers/coinPage');
+const logoutRouter = require('./controllers/logout');
 const { userExtractor } = require('./middleware/auth');
 const { MONGO_URI } = require('./config');
 
@@ -38,6 +39,7 @@ app.use('/Components', express.static(path.resolve('views', 'Components')));
 // Rutas backend
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
+app.use('/api/logout', logoutRouter);
 app.use('/api/coin', coinRouter);
 app.use('/api/coinPage', userExtractor, coinPageRouter);
 

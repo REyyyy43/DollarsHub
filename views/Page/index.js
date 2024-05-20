@@ -119,3 +119,31 @@ axios.get('/api/coinPage')
         });
     })
     .catch(error => console.error(error));
+
+        // Esta variable te ayudará a controlar si el usuario ya cerró la sesión
+let loggedOut = false;
+
+// Agregar evento beforeunload para detectar cuando el usuario intenta salir de la página
+window.addEventListener('beforeunload', function (e) {
+    // Si el usuario no ha cerrado la sesión, mostrar el mensaje de advertencia
+    if (!loggedOut) {
+        const confirmationMessage = '¿Seguro que quieres salir? Se cerrará la sesión.';
+        (e || window.event).returnValue = confirmationMessage; // Para navegadores más antiguos
+        return confirmationMessage;
+    }
+});
+
+const closeBtn = document.getElementById('signOutBtn');
+
+closeBtn.addEventListener('click', async e => { 
+    try {
+        await axios.get('/api/logout');
+
+        loggedOut = true; // Marcamos que el usuario ha cerrado la sesión
+        window.location.replace('/login');
+
+    } catch (error) {
+        console.log(error);
+    }
+});
+    
